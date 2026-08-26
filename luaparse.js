@@ -1766,6 +1766,7 @@
       // Likewise 'break' in Lua older than 5.2
       if ('return' === token.value || (!features.relaxedBreak && 'break' === token.value)) {
         block.push(parseStatement(flowContext));
+        consume(';');
         break;
       }
       statement = parseStatement(flowContext);
