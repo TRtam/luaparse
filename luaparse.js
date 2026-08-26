@@ -2684,6 +2684,13 @@
     line = 1;
     lineStart = 0;
     length = input.length;
+    
+    // Skip UTF-8 BOM
+    if (input.charCodeAt(0) === 0xFEFF) {
+      index = 1;
+      lineStart = 1;
+    }
+    
     // When tracking identifier scope, initialize with an empty scope.
     scopes = [[]];
     scopeDepth = 0;
